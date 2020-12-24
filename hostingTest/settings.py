@@ -1,21 +1,24 @@
 from pathlib import Path
-import os
+from os import environ as os_environ
+from json import load as json_load
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_DIR = Path(os_environ['USER_SECRET']) / 'Django'
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['HOSTINGTEST_SECRET_KEY']
+with open(SECRET_DIR / 'SECRET_KEY_hostingTest.txt', 'r') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.1.160', '211.47.75.51']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.1.160', '211.47.75.51']
 
 
 # Application definition
@@ -68,7 +71,8 @@ CSRF_COOKIE_SECURE = True
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-DATABASES = eval(os.environ['HOSTINGTEST_DATABASES'])
+with open(SECRET_DIR / 'DATABASES_hostingTest.json', 'r') as f:
+    DATABASES = json_load(f)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

@@ -29,6 +29,7 @@ www_dir/
 build/
 develop-eggs/
 dist/
+bootstrap-5.0.0-beta1-dist/
 downloads/
 eggs/
 .eggs/

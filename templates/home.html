@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 
+{% block exstyle %}
+<style>
+    body {
+        background-color: #293036;
+        color: white;
+        align-items: center;
+    }
+
+    #homeCover {
+        position: absolute;
+        margin-top: 25%;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+</style>
+{% endblock exstyle %}
 
 {% block content %}
-Home Test
+<div class="container-fluid text-center" id="homeCover">
+    <h1>WDSH project (alpha)</h1>
+    <p class="lead">WDSH project was carried out for prediction of candlestick patterns of stocks. Water is cold. <br>
+        Click below button and check the result of next day's prediction. </p>
+    <p class="lead">
+        <a href="{% url 'pred:index' %}" class="btn btn-lg btn-secondary fw-bold border-white bg-white text-dark">GO!</a>
+    </p>
+</div>
 {% endblock content %}

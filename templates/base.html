@@ -17,6 +17,7 @@
       padding-bottom: 0.1rem;
       font-size: 0.8rem;
     }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -31,6 +32,8 @@
       }
     }
   </style>
+  {% block exstyle %}
+  {% endblock exstyle %}
 </head>
 
 <body>
@@ -65,15 +68,13 @@
       </div>
     </nav>
   </header>
-  {% block main %}
   <main>
+    {% block content %}
     <div class="container-fluid">
-      {% block content %}
       이 글이 보인다면 base.html 템플릿 그대로니까 내용물 채우셈
-      {% endblock content %}
     </div>
+    {% endblock content %}
   </main>
-  {% endblock main %}
 
   <footer class="site-footer fixed-bottom bg-dark text-light text-center">
     copyright &copy; 2020 WDSH All Rights Reserved

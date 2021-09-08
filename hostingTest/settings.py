@@ -71,8 +71,8 @@ CSRF_COOKIE_SECURE = True
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-with open(SECRET_DIR / 'DATABASES_hostingTest.json', 'r') as f:
-    DATABASES = json_load(f)
+# with open(SECRET_DIR / 'DATABASES_hostingTest.json', 'r') as f:
+#     DATABASES = json_load(f)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
